@@ -1,3 +1,3 @@
-output "deployment" {
-  value = var.deployment
+output "user_data" {
+  value = var.user_data
 }
