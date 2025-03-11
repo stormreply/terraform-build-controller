@@ -7,7 +7,7 @@ variable "instance_type" {
 variable "root_volume_size" {
   type        = number
   description = "Size of the root volume of the build controller in GB"
-  default     = 20
+  default     = 50 # TODO: validate check for min 50GB
 }
 
 variable "user_data" {
