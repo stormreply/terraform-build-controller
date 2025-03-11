@@ -35,3 +35,4 @@ jobs:
       region: ${{ inputs.region }}
       release: ${{ inputs.release }}
       tfvars: ${{ inputs.tfvars }}
+    secrets: inherit
