@@ -13,7 +13,7 @@ on:
         type: string
         required: true
         default: prod
-      expiry:
+      expires_after:
         type: string
         required: false
         default: "1 day"
@@ -36,6 +36,7 @@ jobs:
     with:
       account_id: ${{ inputs.account_id }}
       environment: ${{ inputs.environment }}
+      expires_after: ${{ inputs.expires_after }}
       region: ${{ inputs.region }}
       release: ${{ inputs.release }}
       tfvars: ${{ inputs.tfvars }}
