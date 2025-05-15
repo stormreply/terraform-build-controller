@@ -9,18 +9,18 @@ on:
         type: string
         required: true
         default: 541792499640
-      environment:
-        type: string
-        required: true
-        default: prod
-      expires_after:
-        type: string
-        required: false
-        default: "1 day"
       region:
         type: string
         required: true
         default: eu-central-1
+      expires_after:
+        type: string
+        required: false
+        default: "1 day"
+      environment:
+        type: string
+        required: false
+        default: ""
       var_file:
         type: string
         required: false
