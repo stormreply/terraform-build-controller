@@ -21,7 +21,7 @@ on:
         type: string
         required: true
         default: eu-central-1
-      tfvars:
+      var_file:
         type: string
         required: false
         default: ""
