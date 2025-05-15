@@ -34,5 +34,5 @@ jobs:
       environment: ${{ inputs.environment }}
       expires_after: ${{ inputs.expires_after }}
       region: ${{ inputs.region }}
-      tfvars: ${{ inputs.tfvars }}
+      var_file: ${{ inputs.tfvars }}
     secrets: inherit

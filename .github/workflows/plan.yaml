@@ -29,5 +29,5 @@ jobs:
       account_id: ${{ inputs.account_id }}
       environment: ${{ inputs.environment }}
       region: ${{ inputs.region }}
-      tfvars: ${{ inputs.tfvars }}
+      var_file: ${{ inputs.tfvars }}
     secrets: inherit
