@@ -5,10 +5,6 @@ permissions: write-all
 on:
   workflow_dispatch:
     inputs:
-      account_id:
-        type: string
-        required: true
-        default: 541792499640
       region:
         type: string
         required: true
@@ -30,7 +26,6 @@ jobs:
   apply:
     uses: stormreply/terraform-workflow-controller/.github/workflows/apply.yaml@main
     with:
-      account_id: ${{ inputs.account_id }}
       environment: ${{ inputs.environment }}
       expires_after: ${{ inputs.expires_after }}
       region: ${{ inputs.region }}
