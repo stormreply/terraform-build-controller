@@ -5,10 +5,6 @@ permissions: write-all
 on:
   workflow_dispatch:
     inputs:
-      region:
-        type: string
-        required: true
-        default: eu-central-1
       expires_after:
         type: string
         required: false
@@ -28,6 +24,5 @@ jobs:
     with:
       environment: ${{ github.actor }}
       expires_after: ${{ inputs.expires_after }}
-      region: ${{ inputs.region }}
       var_file: ${{ inputs.tfvars }}
     secrets: inherit
