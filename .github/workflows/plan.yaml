@@ -20,7 +20,7 @@ on:
 
 jobs:
   plan:
-    uses: stormreply/terraform-workflow-controller/.github/workflows/plan.yaml@main
+    uses: stormreply/storm-library-for-terraform/.github/workflows/plan.yaml@main
     with:
       environment: ${{ inputs.environment }}
       region: ${{ inputs.region }}
