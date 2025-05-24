@@ -26,7 +26,7 @@ jobs:
   apply:
     uses: stormreply/storm-library-for-terraform/.github/workflows/apply.yaml@main
     with:
-      environment: ${{ inputs.environment }}
+      environment: ${{ github.actor }}
       expires_after: ${{ inputs.expires_after }}
       region: ${{ inputs.region }}
       var_file: ${{ inputs.tfvars }}
