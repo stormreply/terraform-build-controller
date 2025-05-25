@@ -4,20 +4,8 @@ permissions: write-all
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: string
-        required: false
-        default: ""
-      var_file:
-        type: string
-        required: false
-        default: ""
 
 jobs:
   test:
     uses: stormreply/storm-library-for-terraform/.github/workflows/test.yaml@main
-    with:
-      environment: ${{ inputs.environment }}
-      var_file: ${{ inputs.tfvars }}
     secrets: inherit

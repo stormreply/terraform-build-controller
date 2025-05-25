@@ -9,20 +9,10 @@ on:
         type: string
         required: false
         default: "1 day"
-      environment:
-        type: string
-        required: false
-        default: ""
-      var_file:
-        type: string
-        required: false
-        default: ""
 
 jobs:
   apply:
     uses: stormreply/storm-library-for-terraform/.github/workflows/apply.yaml@main
     with:
-      environment: ${{ github.actor }}
       expires_after: ${{ inputs.expires_after }}
-      var_file: ${{ inputs.tfvars }}
     secrets: inherit
