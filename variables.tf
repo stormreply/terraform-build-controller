@@ -1,3 +1,12 @@
+variable "detailed_monitoring" {
+  type        = bool
+  description = <<-EOD
+    Flag for detailed monitoring. Make sure to understand cost/benefit relationship.
+    Check: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html
+  EOD
+  default     = true
+}
+
 variable "instance_type" {
   type        = string
   description = "Instance type of the build controller"

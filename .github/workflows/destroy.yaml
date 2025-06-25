@@ -1,6 +1,6 @@
 name: Destroy
 
-permissions: write-all
+permissions: read-all
 
 on:
   workflow_dispatch:

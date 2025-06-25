@@ -30,11 +30,14 @@ resource "aws_iam_role_policy_attachment" "amazon_ssm_managed_instance_core" {
 
 # TODO:
 data "aws_iam_policy" "administrator_access" {
+  # checkov:skip=CKV_AWS_274: "AWS AdministratorAccess policy is used by IAM roles, users, or groups"
+  # checkov:skip=CKV_AWS_275: "Disallow policies from using the AWS AdministratorAccess policy"
   arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
 # TODO:
-resource "aws_iam_role_policy_attachment" "adminmistrator_access" {
+resource "aws_iam_role_policy_attachment" "administrator_access" {
+  # checkov:skip=CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
   role       = aws_iam_role.controller.name
   policy_arn = data.aws_iam_policy.administrator_access.arn
 }
