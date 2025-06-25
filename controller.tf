@@ -8,6 +8,7 @@ resource "aws_instance" "controller" {
   user_data                   = var.user_data
   user_data_replace_on_change = true
 
+  # TODO: rather not use user_data_base64, check encryption options
   metadata_options {
     http_tokens = "required"
   }
