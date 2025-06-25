@@ -1,6 +1,8 @@
 name: Apply
 
-permissions: read-all
+permissions:
+  contents: read
+  id-token: write
 
 on:
   workflow_dispatch:
