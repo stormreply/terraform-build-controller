@@ -1,10 +1,10 @@
-resource "aws_iam_instance_profile" "controller" {
-  name = "${var.deployment.name}-controller-profile"
-  role = aws_iam_role.controller.name
+resource "aws_iam_instance_profile" "instance" {
+  name = var.deployment.name
+  role = aws_iam_role.instance.name
 }
 
-resource "aws_iam_role" "controller" {
-  name               = "${var.deployment.name}-controller"
+resource "aws_iam_role" "instance" {
+  name               = "${var.deployment.name}-instance"
   assume_role_policy = data.aws_iam_policy_document.client_assume_role.json
 }
 
@@ -24,7 +24,7 @@ data "aws_iam_policy" "amazon_ssm_managed_instance_core" {
 }
 
 resource "aws_iam_role_policy_attachment" "amazon_ssm_managed_instance_core" {
-  role       = aws_iam_role.controller.name
+  role       = aws_iam_role.instance.name
   policy_arn = data.aws_iam_policy.amazon_ssm_managed_instance_core.arn
 }
 
@@ -38,6 +38,6 @@ data "aws_iam_policy" "administrator_access" {
 # TODO:
 resource "aws_iam_role_policy_attachment" "administrator_access" {
   # checkov:skip=CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
-  role       = aws_iam_role.controller.name
+  role       = aws_iam_role.instance.name
   policy_arn = data.aws_iam_policy.administrator_access.arn
 }

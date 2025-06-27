@@ -7,20 +7,26 @@ variable "detailed_monitoring" {
   default     = true
 }
 
+variable "instance_name" {
+  type        = string
+  description = "Instance name"
+  default     = "" # will be set in locals
+}
+
 variable "instance_type" {
   type        = string
-  description = "Instance type of the build controller"
+  description = "Instance type"
   default     = "t3.medium"
 }
 
 variable "root_volume_size" {
   type        = number
-  description = "Size of the root volume of the build controller in GB"
-  default     = 50 # TODO: validate check for min 50GB
+  description = "Root volume size in GB"
+  default     = 50
 }
 
 variable "user_data" {
   type        = string
-  description = "User data to pass to the build controller"
+  description = "User data to pass to the instance"
   default     = ""
 }

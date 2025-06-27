@@ -1,8 +1,8 @@
-resource "aws_instance" "controller" {
+resource "aws_instance" "instance" {
   #ts:skip=AC-AW-IS-IN-M-0144 Do not deploy within Default VPC TODO:
   ami                         = data.aws_ami.latest_al2023_hvm_ebs_x86_64.id
   ebs_optimized               = true
-  iam_instance_profile        = aws_iam_instance_profile.controller.name
+  iam_instance_profile        = aws_iam_instance_profile.instance.name
   instance_type               = var.instance_type
   monitoring                  = var.detailed_monitoring
   user_data                   = var.user_data
@@ -18,6 +18,6 @@ resource "aws_instance" "controller" {
   }
 
   tags = {
-    Name = "${var.deployment.name}-controller"
+    Name = local.instance_name
   }
 }
