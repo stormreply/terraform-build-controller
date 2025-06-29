@@ -1,4 +1,4 @@
-data "aws_ami" "latest_al2023_hvm_ebs_x86_64" {
+data "aws_ami" "latest_amazon_linux_ami" {
   most_recent = true
   owners      = ["amazon"]
   filter {

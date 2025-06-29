@@ -1,3 +1,9 @@
+variable "ami" {
+  type        = string
+  description = "AMI (Id) to use for the instance"
+  default     = null
+}
+
 variable "detailed_monitoring" {
   type        = bool
   description = <<-EOD
@@ -10,7 +16,7 @@ variable "detailed_monitoring" {
 variable "instance_name" {
   type        = string
   description = "Instance name"
-  default     = "" # will be set in locals
+  default     = null # will be set in locals
 }
 
 variable "instance_type" {
@@ -25,8 +31,20 @@ variable "root_volume_size" {
   default     = 50
 }
 
+variable "subnet_id" {
+  type        = string
+  description = "Id of the subnet to create this instance in"
+  default     = null
+}
+
 variable "user_data" {
   type        = string
   description = "User data to pass to the instance"
   default     = ""
+}
+
+variable "vpc_security_group_ids" {
+  type        = list(string)
+  description = "List of security group IDs to use with the instance"
+  default     = null
 }
