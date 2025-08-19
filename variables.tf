@@ -25,6 +25,12 @@ variable "instance_type" {
   default     = "t3.medium"
 }
 
+variable "policies" {
+  type        = list(string)
+  description = "List of IAM policy ARNs to attach to the instance"
+  default     = []
+}
+
 variable "root_volume_size" {
   type        = number
   description = "Root volume size in GB"
