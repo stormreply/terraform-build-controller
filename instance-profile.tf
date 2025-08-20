@@ -43,8 +43,8 @@ resource "aws_iam_role_policy_attachment" "administrator_access" {
 }
 
 resource "aws_iam_role_policy_attachment" "additional_policies" {
-  count = length(var.policies)
+  for_each = toset(var.policies)
 
   role       = aws_iam_role.instance.name
-  policy_arn = var.policies[count.index].arn
+  policy_arn = each.value
 }
