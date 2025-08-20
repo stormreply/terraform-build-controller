@@ -46,7 +46,7 @@ variable "subnet_id" {
 variable "user_data" {
   type        = string
   description = "User data to pass to the instance"
-  default     = ""
+  default     = null
 }
 
 variable "vpc_security_group_ids" {
