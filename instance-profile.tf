@@ -46,5 +46,5 @@ resource "aws_iam_role_policy_attachment" "additional_policies" {
   for_each = toset(var.policies)
 
   role       = aws_iam_role.instance.name
-  policy_arn = each.value
+  policy_arn = each.key
 }
