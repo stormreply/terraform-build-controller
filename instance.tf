@@ -4,10 +4,13 @@ resource "aws_instance" "instance" {
   ebs_optimized               = true
   iam_instance_profile        = aws_iam_instance_profile.instance.name
   instance_type               = var.instance_type
-  key_name                    = "storm-reply-bherding-bernd"
   monitoring                  = var.detailed_monitoring
   subnet_id                   = var.subnet_id
-  user_data                   = var.user_data
+  user_data                   = <<-EOD
+    dnf install -y amazon-ssm-agent
+    systemctl enable --now amazon-ssm-agent
+    ${var.user_data}
+  EOD
   user_data_replace_on_change = true
   vpc_security_group_ids      = var.vpc_security_group_ids
   # TODO: rather not use user_data_base64, check encryption options
