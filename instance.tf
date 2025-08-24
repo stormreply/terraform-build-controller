@@ -9,7 +9,7 @@ resource "aws_instance" "instance" {
   user_data                   = <<-EOD
     dnf install -y amazon-ssm-agent
     systemctl enable --now amazon-ssm-agent
-    ${var.user_data}
+    ${local.user_data}
   EOD
   user_data_replace_on_change = true
   vpc_security_group_ids      = var.vpc_security_group_ids
@@ -24,4 +24,8 @@ resource "aws_instance" "instance" {
   tags = {
     Name = local.instance_name
   }
+}
+
+locals {
+  user_data = var.user_data == null ? "" : var.user_data
 }
