@@ -4,7 +4,6 @@ resource "aws_instance" "instance" {
   ebs_optimized               = true
   iam_instance_profile        = aws_iam_instance_profile.instance.name
   instance_type               = var.instance_type
-  key_name                    = "storm-reply-bherding-bernd"
   monitoring                  = var.detailed_monitoring
   subnet_id                   = var.subnet_id
   user_data                   = <<-EOD
