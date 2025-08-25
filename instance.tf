@@ -6,11 +6,7 @@ resource "aws_instance" "instance" {
   instance_type               = var.instance_type
   monitoring                  = var.detailed_monitoring
   subnet_id                   = var.subnet_id
-  user_data                   = <<-EOD
-    dnf install -y amazon-ssm-agent
-    systemctl enable --now amazon-ssm-agent
-    ${local.user_data}
-  EOD
+  user_data                   = var.user_data
   user_data_replace_on_change = true
   vpc_security_group_ids      = var.vpc_security_group_ids
   # TODO: rather not use user_data_base64, check encryption options
@@ -24,8 +20,4 @@ resource "aws_instance" "instance" {
   tags = {
     Name = local.instance_name
   }
-}
-
-locals {
-  user_data = var.user_data == null ? "" : var.user_data
 }
