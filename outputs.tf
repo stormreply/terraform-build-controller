@@ -1,3 +1,7 @@
+output "instance" {
+  value = aws_instance.instance
+}
+
 output "instance_type" {
   value = var.instance_type
 }
