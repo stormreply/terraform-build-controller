@@ -49,6 +49,12 @@ variable "user_data" {
   default     = null
 }
 
+variable "user_data_base64" {
+  type        = string
+  description = "User data to pass to the instance; base64-encoded"
+  default     = null
+}
+
 variable "vpc_security_group_ids" {
   type        = list(string)
   description = "List of security group IDs to use with the instance"

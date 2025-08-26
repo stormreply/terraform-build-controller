@@ -7,6 +7,7 @@ resource "aws_instance" "instance" {
   monitoring                  = var.detailed_monitoring
   subnet_id                   = var.subnet_id
   user_data                   = var.user_data
+  user_data_base64            = var.user_data_base64
   user_data_replace_on_change = true
   vpc_security_group_ids      = var.vpc_security_group_ids
   # TODO: rather not use user_data_base64, check encryption options
