@@ -25,6 +25,12 @@ variable "instance_type" {
   default     = "t3.medium"
 }
 
+variable "key_name" {
+  type        = string
+  description = "Key pair name to use"
+  default     = null
+}
+
 variable "policies" {
   type        = list(string)
   description = "List of IAM policy ARNs to attach to the instance"
