@@ -37,6 +37,12 @@ variable "policies" {
   default     = []
 }
 
+variable "region" {
+  type        = string
+  description = "Region where to deploy to"
+  default     = null
+}
+
 variable "root_volume_size" {
   type        = number
   description = "Root volume size in GB"

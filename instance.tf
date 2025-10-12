@@ -1,5 +1,6 @@
 resource "aws_instance" "instance" {
   #ts:skip=AC-AW-IS-IN-M-0144 Do not deploy within Default VPC TODO:
+  region                      = var.region
   ami                         = local.ami
   ebs_optimized               = true
   iam_instance_profile        = aws_iam_instance_profile.instance.name
