@@ -7,6 +7,7 @@ resource "aws_instance" "instance" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   monitoring                  = var.detailed_monitoring
+  source_dest_check           = var.source_dest_check
   subnet_id                   = var.subnet_id
   user_data                   = var.user_data
   user_data_base64            = var.user_data_base64
