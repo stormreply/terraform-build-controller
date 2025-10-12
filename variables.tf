@@ -49,6 +49,12 @@ variable "root_volume_size" {
   default     = 50
 }
 
+variable "source_dest_check" {
+  type        = bool
+  description = "Disable source/dest check (default true)"
+  default     = true
+}
+
 variable "subnet_id" {
   type        = string
   description = "Id of the subnet to create this instance in"
