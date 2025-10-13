@@ -1,5 +1,5 @@
 resource "aws_iam_instance_profile" "instance" {
-  name = var.deployment.name
+  name = local.instance_name
   role = aws_iam_role.instance.name
 }
 
