@@ -4,7 +4,7 @@ resource "aws_iam_instance_profile" "instance" {
 }
 
 resource "aws_iam_role" "instance" {
-  name               = "${var.deployment.name}-instance"
+  name               = local.instance_name
   assume_role_policy = data.aws_iam_policy_document.client_assume_role.json
 }
 
